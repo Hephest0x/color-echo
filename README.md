@@ -6,20 +6,18 @@ Welcome! This repository is a **simple, direct resource** for adding color to yo
 
 To start using these colors, simply copy the code block below and paste it at the beginning of your Bash script.
 ```Bash
-
 # ------COLORS---------
+C_RESET="\033[0m"
+C_RED="\033[0;31m"
+C_GREEN="\033[0;32m"
+C_YELLOW="\033[0;33m"
+C_BLUE="\033[0;34m"
+C_CYAN="\033[0;36m"
 
-C_RESET='\033[0m'
-C_RED='\033[0;31m'
-C_GREEN='\033[0;32m'
-C_YELLOW='\033[0;33m'
-C_BLUE='\033[0;34m'
-C_CYAN='\033[0;36m'
-
-echo_info() { echo -e "${C_BLUE}$1${C_RESET}" }
-echo_warn() { echo -e "${C_YELLOW}$1${C_RESET}" }
-echo_error() { echo -e "${C_RED}$1${C_RESET}" }
-echo_success() { echo -e "${C_GREEN}$1${C_RESET}" }
+echo_info()    { printf "%b%s%b\n" "$C_BLUE"   "$*" "$C_RESET"; }
+echo_warn()    { printf "%b%s%b\n" "$C_YELLOW" "$*" "$C_RESET"; }
+echo_error()   { printf "%b%s%b\n" "$C_RED"    "$*" "$C_RESET"; }
+echo_success() { printf "%b%s%b\n" "$C_GREEN"  "$*" "$C_RESET"; }
 # --------------------------------------------------
 ```
 
